@@ -181,7 +181,7 @@ static void setMonitors(TTSDKCrashMonitorType monitorTypes)
     }
 }
 
-void handleConfiguration(TTSDKCrashCConfiguration *configuration)
+void handleTiktokConfiguration(TTSDKCrashCConfiguration *configuration)
 {
     g_reportStoreConfig = TTSDKCrashReportStoreCConfiguration_Copy(&configuration->reportStoreConfiguration);
 
@@ -228,7 +228,7 @@ TTSDKCrashInstallErrorCode ttsdkcrash_install(const char *appName, const char *c
         return TTSDKCrashInstallErrorInvalidParameter;
     }
 
-    handleConfiguration(configuration);
+    handleTiktokConfiguration(configuration);
 
     if (g_reportStoreConfig.appName == NULL) {
         g_reportStoreConfig.appName = strdup(appName);
